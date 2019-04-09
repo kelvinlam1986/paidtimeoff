@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="5a432bab-4ced-45b7-87df-b007b982506b" ChangeDateTime="01/23/2019 10:23:33">
+    <Property Name="ElementName" Value="[dbo].[ENTUserAccount].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ENTUserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ENT" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3c046c71-6246-4dfa-b748-f767b97ab9d8" ChangeDateTime="01/23/2019 10:23:42">
+    <Property Name="ElementName" Value="[dbo].[ENTUserAccount].[ENT]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ENTUserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ENTUserAccountId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="078c8609-ff78-4bc5-ad88-0a3661559037" ChangeDateTime="01/28/2019 10:20:04">
+    <Property Name="ElementName" Value="[dbo].[ENTMenuItem].[Insert]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ENTMenuItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InsertENTUserAccountId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d467783f-fb6d-4181-aa1d-3bfc0257e8bb" ChangeDateTime="01/28/2019 10:28:09">
+    <Property Name="ElementName" Value="[dbo].[ENTMenuItem].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ENTMenuItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ENTMenuItemId" />
+  </Operation>
+</Operations>

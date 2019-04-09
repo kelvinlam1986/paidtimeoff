@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V2.PaidTimeOffBLL", "V2.PaidTimeOffBLL\V2.PaidTimeOffBLL.csproj", "{36DA0AC0-54BC-491E-81DA-433F00BDE0B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V2.PaidTimeOffDAL", "V2.PaidTimeOffDAL\V2.PaidTimeOffDAL.csproj", "{C7A9C1D6-7413-4921-B4B4-7784ED382947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V2.FrameworkControls", "V2.FrameworkControls\V2.FrameworkControls.csproj", "{C08BC237-A420-4D9D-A908-7A0893F22EFE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PaidTimeOffDatabase", "PaidTimeOffDatabase\PaidTimeOffDatabase.sqlproj", "{A0262E83-3E59-400C-9520-315D312C422A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaidTimeOffUI", "PaidTimeOffUI\PaidTimeOffUI.csproj", "{A0B02819-47AD-411F-BC0D-0080A2EDD1EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36DA0AC0-54BC-491E-81DA-433F00BDE0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DA0AC0-54BC-491E-81DA-433F00BDE0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DA0AC0-54BC-491E-81DA-433F00BDE0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DA0AC0-54BC-491E-81DA-433F00BDE0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A9C1D6-7413-4921-B4B4-7784ED382947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A9C1D6-7413-4921-B4B4-7784ED382947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A9C1D6-7413-4921-B4B4-7784ED382947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A9C1D6-7413-4921-B4B4-7784ED382947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C08BC237-A420-4D9D-A908-7A0893F22EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C08BC237-A420-4D9D-A908-7A0893F22EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C08BC237-A420-4D9D-A908-7A0893F22EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C08BC237-A420-4D9D-A908-7A0893F22EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0262E83-3E59-400C-9520-315D312C422A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0262E83-3E59-400C-9520-315D312C422A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0262E83-3E59-400C-9520-315D312C422A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A0262E83-3E59-400C-9520-315D312C422A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0262E83-3E59-400C-9520-315D312C422A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0262E83-3E59-400C-9520-315D312C422A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A0B02819-47AD-411F-BC0D-0080A2EDD1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B02819-47AD-411F-BC0D-0080A2EDD1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B02819-47AD-411F-BC0D-0080A2EDD1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B02819-47AD-411F-BC0D-0080A2EDD1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

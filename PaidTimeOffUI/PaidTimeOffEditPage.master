@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/PaidTimeOff.Master" AutoEventWireup="true" CodeBehind="PaidTimeOffEditPage.master.cs" Inherits="PaidTimeOffUI.PaidTimeOffEditPage" %>
+
+<%@ Register Assembly="V2.FrameworkControls" Namespace="V2.FrameworkControls" TagPrefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <table>
+        <tr>
+            <td>
+                <cc1:ValidationErrorMessages ID="ValidationErrorMessages1" runat="server" />
+            </td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+            </td>
+            <td>
+                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>

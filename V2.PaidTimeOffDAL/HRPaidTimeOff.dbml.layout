@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HRPaidTimeOff">
+  <DataContextMoniker Name="/HRPaidTimeOffDataContext" />
+  <nestedChildShapes>
+    <classShape Id="297e07b9-3849-479e-a0a9-f7e9974ba844" absoluteBounds="1.375, 2.75, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTUserAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b37e39d3-1892-473f-8a1f-3e8ca167deac" absoluteBounds="1.3900000000000001, 3.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="433ffe1a-a2d7-4dbb-b0b5-880c0865b4c3" absoluteBounds="4.125, 2.375, 2, 3.1170068359375">
+      <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTMenuItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57c673df-8b0b-4e61-8f39-13907e4a3d03" absoluteBounds="4.14, 2.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

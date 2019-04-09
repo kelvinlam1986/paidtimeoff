@@ -1,0 +1,14 @@
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffBLL.dll
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffBLL.pdb
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\obj\Debug\V2.PaidTimeOffBLL.dll
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\obj\Debug\V2.PaidTimeOffBLL.pdb
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffDAL.dll
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffDAL.pdb
+D:\HRPaidTime\PaidTimeOffSolution\V2.PaidTimeOffBLL\obj\Debug\V2.PaidTimeOffBLL.csprojResolveAssemblyReference.cache
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffBLL.dll
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffBLL.pdb
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffDAL.dll
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\bin\Debug\V2.PaidTimeOffDAL.pdb
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\obj\Debug\V2.PaidTimeOffBLL.csprojResolveAssemblyReference.cache
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\obj\Debug\V2.PaidTimeOffBLL.dll
+D:\PaidTimeOffSolution\V2.PaidTimeOffBLL\obj\Debug\V2.PaidTimeOffBLL.pdb

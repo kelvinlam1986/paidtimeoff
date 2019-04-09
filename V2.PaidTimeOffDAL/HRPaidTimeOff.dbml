@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HRPaidTimeOff" Class="HRPaidTimeOffDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=HRPaidTimeOff;Integrated Security=True" SettingsObjectName="V2.PaidTimeOffDAL.Properties.Settings" SettingsPropertyName="HRPaidTimeOffConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ENTUserAccount" Member="ENTUserAccounts">
+    <Type Name="ENTUserAccount" Id="ID2">
+      <Column Name="ENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WindowsAccountName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="eNTUserAccountId" Member="ENTUserAccountId" />
+      <Argument Parameter="windowsAccountName" Member="WindowsAccountName" />
+      <Argument Parameter="firstName" Member="FirstName" />
+      <Argument Parameter="lastName" Member="LastName" />
+      <Argument Parameter="email" Member="Email" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="insertENTUserAccountId" Member="InsertENTUserAccountId" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="eNTUserAccountId" Member="ENTUserAccountId" />
+      <Argument Parameter="windowsAccountName" Member="WindowsAccountName" />
+      <Argument Parameter="firstName" Member="FirstName" />
+      <Argument Parameter="lastName" Member="LastName" />
+      <Argument Parameter="email" Member="Email" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="updateENTUserAccountId" Member="UpdateENTUserAccountId" />
+      <Argument Parameter="version" Member="Version" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId3">
+      <Argument Parameter="eNTUserAccountId" Member="ENTUserAccountId" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.ENTMenuItem" Member="ENTMenuItems">
+    <Type Name="ENTMenuItem" Id="ID1">
+      <Column Name="ENTMenuItemId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentENTMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisplaySequence" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsAlwaysEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Function Id="FunctionId3" Name="dbo.ENTUserAccountDelete" Method="ENTUserAccountDelete">
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ENTMenuItemSelectAll" Method="ENTMenuItemSelectAll">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ENTUserAccountSelectAll" Method="ENTUserAccountSelectAll">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ENTUserAccountSelectById" Method="ENTUserAccountSelectById">
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.ENTUserAccountInsert" Method="ENTUserAccountInsert">
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="WindowsAccountName" Parameter="windowsAccountName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.ENTUserAccountUpdate" Method="ENTUserAccountUpdate">
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WindowsAccountName" Parameter="windowsAccountName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

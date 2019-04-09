@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSchemaModel FileFormatVersion="1.2" SchemaVersion="2.4" DspName="Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider" CollationLcid="1033" CollationCaseSensitive="False" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+	<Header>
+		<CustomData Category="AnsiNulls">
+			<Metadata Name="AnsiNulls" Value="True" />
+		</CustomData>
+		<CustomData Category="QuotedIdentifier">
+			<Metadata Name="QuotedIdentifier" Value="True" />
+		</CustomData>
+		<CustomData Category="CompatibilityMode">
+			<Metadata Name="CompatibilityMode" Value="110" />
+		</CustomData>
+		<CustomData Category="Reference" Type="Assembly">
+			<Metadata Name="LogicalName" Value="PaidTimeOffDatabase.dll" />
+			<Metadata Name="FileName" Value="D:\PAIDTIMEOFFSOLUTION\PAIDTIMEOFFDATABASE\OBJ\DEBUG\PAIDTIMEOFFDATABASE.DLL" />
+			<Metadata Name="AssemblyName" Value="PaidTimeOffDatabase" />
+			<Metadata Name="PermissionSet" Value="SAFE" />
+			<Metadata Name="Owner" Value="" />
+			<Metadata Name="GenerateSqlClrDdl" Value="True" />
+			<Metadata Name="IsVisible" Value="True" />
+			<Metadata Name="IsModelAware" Value="True" />
+			<Metadata Name="SkipCreationIfEmpty" Value="True" />
+			<Metadata Name="AssemblySymbolsName" Value="D:\PaidTimeOffSolution\PaidTimeOffDatabase\obj\Debug\PaidTimeOffDatabase.pdb" />
+		</CustomData>
+		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
+	</Header>
+	<Model>
+		<Element Type="SqlDatabaseOptions">
+			<Property Name="Collation" Value="SQL_Latin1_General_CP1_CI_AS" />
+			<Property Name="IsAnsiNullDefaultOn" Value="True" />
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Property Name="IsAnsiWarningsOn" Value="True" />
+			<Property Name="IsArithAbortOn" Value="True" />
+			<Property Name="IsConcatNullYieldsNullOn" Value="True" />
+			<Property Name="IsTornPageProtectionOn" Value="False" />
+			<Property Name="IsFullTextEnabled" Value="True" />
+			<Property Name="PageVerifyMode" Value="3" />
+			<Property Name="DefaultLanguage" Value="" />
+			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Relationship Name="DefaultFilegroup">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[PRIMARY]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[getdate()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[InsertDate]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[getdate()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[UpdateDate]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[getdate()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertDate]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[getdate()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateDate]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[ENTMenuItem].[ENTMenuItemId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[ENTUserAccount].[ENTUserAccountId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[ENTMenuItem]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[ENTMenuItemId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="7" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[MenuItemName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[Description]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[Url]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[ParentENTMenuItemId]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[DisplaySequence]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[IsAlwaysEnabled]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[InsertDate]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="3" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[InsertENTUserAccountId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[UpdateDate]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="4" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[UpdateENTUserAccountId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTMenuItem].[Version]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[timestamp]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ENTMenuItemSelectAll]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SET NOCOUNT ON
+	SELECT ENTMenuItemId, MenuItemName, Description, Url, ParentENTMenuItemId, 
+           DisplaySequence, IsAlwaysEnabled, InsertDate, InsertENTUserAccountId, 
+           UpdateDate, UpdateENTUserAccountId, Version
+	FROM dbo.ENTMenuItem
+	ORDER BY ParentENTMenuItemId, DisplaySequence, MenuItemName
+RETURN 0]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[ENTMenuItemId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[MenuItemName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[Url]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[ParentENTMenuItemId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[DisplaySequence]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[IsAlwaysEnabled]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[InsertDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[InsertENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[UpdateDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[UpdateENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTMenuItem].[Version]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="378" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[ENTMenuItemSelectAll]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[ENTUserAccount]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[ENTUserAccountId]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="8" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[WindowsAccountName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[FirstName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[LastName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[Email]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[IsActive]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[InsertDate]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="5" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[InsertENTUserAccountId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[UpdateDate]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="6" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[UpdateENTUserAccountId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ENTUserAccount].[Version]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[timestamp]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ENTUserAccountDelete]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SET NOCOUNT ON
+	DELETE
+		FROM dbo.ENTUserAccount
+		WHERE ENTUserAccountId = @ENTUserAccountId
+RETURN]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[ENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountDelete].[@ENTUserAccountId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountDelete].[@ENTUserAccountId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="180" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[ENTUserAccountDelete]&#xD;&#xA;&#x9;@ENTUserAccountId int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ENTUserAccountInsert]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SET NOCOUNT ON
+	INSERT INTO [dbo].[ENTUserAccount](WindowsAccountName, FirstName, LastName, 
+            Email, IsActive, InsertENTUserAccountId, InsertDate, 
+            UpdateENTUserAccountId, UpdateDate)
+     VALUES (@WindowsAccountName, @FirstName, @LastName, @Email, 
+            @IsActive, @InsertENTUserAccountId, GetDate(), 
+            @InsertENTUserAccountId, GetDate())
+	SET @ENTUserAccountId = SCOPE_IDENTITY()
+RETURN]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[WindowsAccountName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[IsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@WindowsAccountName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@IsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@InsertENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountInsert].[@ENTUserAccountId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@ENTUserAccountId]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@WindowsAccountName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@FirstName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@LastName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@Email]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@IsActive]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountInsert].[@InsertENTUserAccountId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="677" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[ENTUserAccountInsert]&#xD;&#xA;&#x9;@ENTUserAccountId int OUTPUT,&#xD;&#xA;&#x9;@WindowsAccountName varchar(50),&#xD;&#xA;&#x9;@FirstName varchar(50),&#xD;&#xA;&#x9;@LastName varchar(50),&#xD;&#xA;&#x9;@Email varchar(100),&#xD;&#xA;&#x9;@IsActive bit,&#xD;&#xA;&#x9;@InsertENTUserAccountId int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ENTUserAccountSelectAll]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SET NOCOUNT ON
+
+	SELECT ENTUserAccountId, WindowsAccountName, FirstName, LastName,
+			Email, IsActive, InsertDate, InsertENTUserAccountId,
+			UpdateDate, UpdateENTUserAccountId, Version
+	FROM dbo.ENTUserAccount
+RETURN 0]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[ENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[WindowsAccountName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[IsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Version]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="280" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[ENTUserAccountSelectAll]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ENTUserAccountSelectById]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SET NOCOUNT ON
+  
+	SELECT ENTUserAccountId, WindowsAccountName, FirstName, LastName, 
+             Email, IsActive, InsertDate, InsertENTUserAccountid, 
+             UpdateDate, UpdateENTUserAccountId, Version
+    FROM ENTUserAccount
+   WHERE ENTUserAccountId = @ENTUserAccountId
+  
+ RETURN]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[ENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[WindowsAccountName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[IsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[InsertENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Version]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountSelectById].[@ENTUserAccountId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountSelectById].[@ENTUserAccountId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="378" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[ENTUserAccountSelectById]&#xD;&#xA;&#x9;@ENTUserAccountId int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[ENTUserAccountUpdate]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SET NOCOUNT ON
+
+	UPDATE ENTUserAccount
+     SET WindowsAccountName = @WindowsAccountName,
+         FirstName = @FirstName,
+         LastName = @LastName,
+         Email = @Email,
+         IsActive = @IsActive,
+         UpdateENTUserAccountId = @UpdateENTUserAccountId,
+         UpdateDate = GetDate()
+   WHERE ENTUserAccountId = @ENTUserAccountId
+     AND Version = @Version
+
+RETURN @@ROWCOUNT]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[WindowsAccountName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@WindowsAccountName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[IsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@IsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@UpdateENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[UpdateDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[ENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@ENTUserAccountId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccount].[Version]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ENTUserAccountUpdate].[@Version]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@ENTUserAccountId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@WindowsAccountName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@FirstName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@LastName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@Email]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@IsActive]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@UpdateENTUserAccountId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[ENTUserAccountUpdate].[@Version]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[timestamp]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="682" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[ENTUserAccountUpdate]&#xD;&#xA;&#x9;@ENTUserAccountId int,&#xD;&#xA;    @WindowsAccountName varchar(50),&#xD;&#xA;    @FirstName varchar(50),&#xD;&#xA;    @LastName varchar(50),&#xD;&#xA;    @Email varchar(100),&#xD;&#xA;    @IsActive bit,&#xD;&#xA;    @UpdateENTUserAccountId int,&#xD;&#xA;    @Version timestamp&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+	</Model>
+</DataSchemaModel>
