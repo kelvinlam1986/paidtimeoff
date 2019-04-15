@@ -2,16 +2,40 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HRPaidTimeOff">
   <DataContextMoniker Name="/HRPaidTimeOffDataContext" />
   <nestedChildShapes>
-    <classShape Id="297e07b9-3849-479e-a0a9-f7e9974ba844" absoluteBounds="1.375, 2.75, 2, 2.9247054036458331">
+    <classShape Id="1dbfe45b-c609-473d-9927-e62e9890bc29" absoluteBounds="0.75, 0.75, 2, 2.9247054036458326">
       <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTUserAccount" />
       <nestedChildShapes>
-        <elementListCompartment Id="b37e39d3-1892-473f-8a1f-3e8ca167deac" absoluteBounds="1.3900000000000001, 3.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d47bba4e-ccd6-484a-ad6b-6d6d89b836ca" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="433ffe1a-a2d7-4dbb-b0b5-880c0865b4c3" absoluteBounds="4.125, 2.375, 2, 3.1170068359375">
+    <classShape Id="c47fa322-eda9-40d9-9c42-0fcf7ab0746f" absoluteBounds="3.75, 0.75, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTCapability" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c219dd6-c4b9-474d-be93-2e101dded28a" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9217e140-f130-4620-aaee-3cca6d1a0ff5" absoluteBounds="0.75, 4.75, 2, 3.1170068359375005">
       <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTMenuItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="57c673df-8b0b-4e61-8f39-13907e4a3d03" absoluteBounds="4.14, 2.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="364e6e9f-db22-4b28-b1eb-ae17547294ea" absoluteBounds="0.765, 5.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa308935-dbe8-4b30-9ffc-0f12fb84e94f" absoluteBounds="3.75, 4.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b39d2c3-f4ae-4b83-a206-f10dcc0e4315" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1fa4abc1-b977-487f-b5c2-15838d87b5e7" absoluteBounds="6.75, 0.75, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTRoleCapability" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccb39255-0b03-4f48-9eac-8d64e04a9cb9" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4e4c9e4-b5db-4297-aa67-f9c0e224a211" absoluteBounds="6.75, 4.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/HRPaidTimeOffDataContext/ENTRoleUserAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e4b0017-e172-44a1-8d68-75966b14d5cd" absoluteBounds="6.765, 5.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -30,13 +30,16 @@ namespace V2.PaidTimeOffDAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertENTCapability(ENTCapability instance);
+    partial void UpdateENTCapability(ENTCapability instance);
+    partial void DeleteENTCapability(ENTCapability instance);
     partial void InsertENTMenuItem(ENTMenuItem instance);
     partial void UpdateENTMenuItem(ENTMenuItem instance);
     partial void DeleteENTMenuItem(ENTMenuItem instance);
     #endregion
 		
 		public HRPaidTimeOffDataContext() : 
-				base(global::V2.PaidTimeOffDAL.Properties.Settings.Default.HRPaidTimeOffConnectionString2, mappingSource)
+				base(global::V2.PaidTimeOffDAL.Properties.Settings.Default.HRPaidTimeOffConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -73,11 +76,43 @@ namespace V2.PaidTimeOffDAL
 			}
 		}
 		
+		public System.Data.Linq.Table<ENTCapability> ENTCapabilities
+		{
+			get
+			{
+				return this.GetTable<ENTCapability>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ENTMenuItem> ENTMenuItems
 		{
 			get
 			{
 				return this.GetTable<ENTMenuItem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ENTRole> ENTRoles
+		{
+			get
+			{
+				return this.GetTable<ENTRole>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ENTRoleCapability> ENTRoleCapabilities
+		{
+			get
+			{
+				return this.GetTable<ENTRoleCapability>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ENTRoleUserAccount> ENTRoleUserAccounts
+		{
+			get
+			{
+				return this.GetTable<ENTRoleUserAccount>();
 			}
 		}
 		
@@ -98,6 +133,123 @@ namespace V2.PaidTimeOffDAL
 			this.ENTUserAccountDelete(((System.Nullable<int>)(obj.ENTUserAccountId)));
 		}
 		
+		private void InsertENTRole(ENTRole obj)
+		{
+			System.Nullable<int> p1 = obj.ENTRoleId;
+			this.ENTRoleInsert(ref p1, obj.RoleName, ((System.Nullable<int>)(obj.InsertENTUserAccountId)));
+			obj.ENTRoleId = p1.GetValueOrDefault();
+		}
+		
+		private void UpdateENTRole(ENTRole obj)
+		{
+			this.ENTRoleUpdate(((System.Nullable<int>)(obj.ENTRoleId)), obj.RoleName, ((System.Nullable<int>)(obj.UpdateENTUserAccountId)), obj.Version);
+		}
+		
+		private void DeleteENTRole(ENTRole obj)
+		{
+			this.ENTRoleDelete(((System.Nullable<int>)(obj.ENTRoleId)));
+		}
+		
+		private void InsertENTRoleCapability(ENTRoleCapability obj)
+		{
+			System.Nullable<int> p1 = obj.ENTRoleCapabilityId;
+			this.ENTRoleCapabilityInsert(ref p1, ((System.Nullable<int>)(obj.ENTRoleId)), ((System.Nullable<int>)(obj.ENTCapabilityId)), ((System.Nullable<byte>)(obj.AccessFlag)), ((System.Nullable<int>)(obj.InsertENTUserAccountId)));
+			obj.ENTRoleCapabilityId = p1.GetValueOrDefault();
+		}
+		
+		private void UpdateENTRoleCapability(ENTRoleCapability obj)
+		{
+			this.ENTRoleCapabilityUpdate(((System.Nullable<int>)(obj.ENTRoleCapabilityId)), ((System.Nullable<int>)(obj.ENTRoleId)), ((System.Nullable<int>)(obj.ENTCapabilityId)), ((System.Nullable<byte>)(obj.AccessFlag)), ((System.Nullable<int>)(obj.UpdateENTUserAccountId)), obj.Version);
+		}
+		
+		private void DeleteENTRoleCapability(ENTRoleCapability obj)
+		{
+			this.ENTRoleDelete(((System.Nullable<int>)(obj.ENTRoleId)));
+		}
+		
+		private void InsertENTRoleUserAccount(ENTRoleUserAccount obj)
+		{
+			System.Nullable<int> p1 = obj.ENTRoleUserAccountId;
+			this.ENTRoleUserAccountInsert(ref p1, ((System.Nullable<int>)(obj.ENTRoleId)), ((System.Nullable<int>)(obj.ENTUserAccountId)), ((System.Nullable<int>)(obj.InsertENTUserAccountId)));
+			obj.ENTRoleUserAccountId = p1.GetValueOrDefault();
+		}
+		
+		private void UpdateENTRoleUserAccount(ENTRoleUserAccount obj)
+		{
+			this.ENTRoleUserAccountUpdate(((System.Nullable<int>)(obj.ENTRoleUserAccountId)), ((System.Nullable<int>)(obj.ENTRoleId)), ((System.Nullable<int>)(obj.ENTUserAccountId)), ((System.Nullable<int>)(obj.UpdateENTUserAccountId)), obj.Version);
+		}
+		
+		private void DeleteENTRoleUserAccount(ENTRoleUserAccount obj)
+		{
+			this.ENTRoleUserAccountDelete(((System.Nullable<int>)(obj.ENTRoleUserAccountId)));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleCapabilityDelete")]
+		public int ENTRoleCapabilityDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleCapabilityId", DbType="Int")] System.Nullable<int> eNTRoleCapabilityId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleCapabilityId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleCapabilityInsert")]
+		public int ENTRoleCapabilityInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleCapabilityId", DbType="Int")] ref System.Nullable<int> eNTRoleCapabilityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTCapabilityId", DbType="Int")] System.Nullable<int> eNTCapabilityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccessFlag", DbType="TinyInt")] System.Nullable<byte> accessFlag, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InsertENTUserAccountId", DbType="Int")] System.Nullable<int> insertENTUserAccountId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleCapabilityId, eNTRoleId, eNTCapabilityId, accessFlag, insertENTUserAccountId);
+			eNTRoleCapabilityId = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleCapabilityUpdate")]
+		public int ENTRoleCapabilityUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleCapabilityId", DbType="Int")] System.Nullable<int> eNTRoleCapabilityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTCapabilityId", DbType="Int")] System.Nullable<int> eNTCapabilityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccessFlag", DbType="TinyInt")] System.Nullable<byte> accessFlag, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateENTUserAccountId", DbType="Int")] System.Nullable<int> updateENTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Version", DbType="rowversion")] System.Data.Linq.Binary version)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleCapabilityId, eNTRoleId, eNTCapabilityId, accessFlag, updateENTUserAccountId, version);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleDelete")]
+		public int ENTRoleDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleInsert")]
+		public int ENTRoleInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] ref System.Nullable<int> eNTRoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="VarChar(50)")] string roleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InsertENTUserAccountId", DbType="Int")] System.Nullable<int> insertENTUserAccountId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleId, roleName, insertENTUserAccountId);
+			eNTRoleId = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUpdate")]
+		public int ENTRoleUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="VarChar(50)")] string roleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateENTUserAccountId", DbType="Int")] System.Nullable<int> updateENTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Version", DbType="rowversion")] System.Data.Linq.Binary version)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleId, roleName, updateENTUserAccountId, version);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUserAccountDelete")]
+		public int ENTRoleUserAccountDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleUserAccountId", DbType="Int")] System.Nullable<int> eNTRoleUserAccountId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleUserAccountId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUserAccountInsert")]
+		public int ENTRoleUserAccountInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleUserAccountId", DbType="Int")] ref System.Nullable<int> eNTRoleUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] System.Nullable<int> eNTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InsertENTUserAccountId", DbType="Int")] System.Nullable<int> insertENTUserAccountId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleUserAccountId, eNTRoleId, eNTUserAccountId, insertENTUserAccountId);
+			eNTRoleUserAccountId = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUserAccountUpdate")]
+		public int ENTRoleUserAccountUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleUserAccountId", DbType="Int")] System.Nullable<int> eNTRoleUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] System.Nullable<int> eNTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateENTUserAccountId", DbType="Int")] System.Nullable<int> updateENTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Version", DbType="rowversion")] System.Data.Linq.Binary version)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleUserAccountId, eNTRoleId, eNTUserAccountId, updateENTUserAccountId, version);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTUserAccountDelete")]
 		public int ENTUserAccountDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] System.Nullable<int> eNTUserAccountId)
 		{
@@ -105,11 +257,19 @@ namespace V2.PaidTimeOffDAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTMenuItemSelectAll")]
-		public ISingleResult<ENTMenuItem> ENTMenuItemSelectAll()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTUserAccountInsert")]
+		public int ENTUserAccountInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] ref System.Nullable<int> eNTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WindowsAccountName", DbType="VarChar(50)")] string windowsAccountName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsActive", DbType="Bit")] System.Nullable<bool> isActive, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InsertENTUserAccountId", DbType="Int")] System.Nullable<int> insertENTUserAccountId)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<ENTMenuItem>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTUserAccountId, windowsAccountName, firstName, lastName, email, isActive, insertENTUserAccountId);
+			eNTUserAccountId = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTUserAccountUpdate")]
+		public int ENTUserAccountUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] System.Nullable<int> eNTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WindowsAccountName", DbType="VarChar(50)")] string windowsAccountName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsActive", DbType="Bit")] System.Nullable<bool> isActive, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateENTUserAccountId", DbType="Int")] System.Nullable<int> updateENTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Version", DbType="rowversion")] System.Data.Linq.Binary version)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTUserAccountId, windowsAccountName, firstName, lastName, email, isActive, updateENTUserAccountId, version);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTUserAccountSelectAll")]
@@ -126,19 +286,74 @@ namespace V2.PaidTimeOffDAL
 			return ((ISingleResult<ENTUserAccount>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTUserAccountInsert")]
-		public int ENTUserAccountInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] ref System.Nullable<int> eNTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WindowsAccountName", DbType="VarChar(50)")] string windowsAccountName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsActive", DbType="Bit")] System.Nullable<bool> isActive, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InsertENTUserAccountId", DbType="Int")] System.Nullable<int> insertENTUserAccountId)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTMenuItemSelectAll")]
+		public ISingleResult<ENTMenuItem> ENTMenuItemSelectAll()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTUserAccountId, windowsAccountName, firstName, lastName, email, isActive, insertENTUserAccountId);
-			eNTUserAccountId = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ENTMenuItem>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTUserAccountUpdate")]
-		public int ENTUserAccountUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] System.Nullable<int> eNTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WindowsAccountName", DbType="VarChar(50)")] string windowsAccountName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsActive", DbType="Bit")] System.Nullable<bool> isActive, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateENTUserAccountId", DbType="Int")] System.Nullable<int> updateENTUserAccountId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Version", DbType="rowversion")] System.Data.Linq.Binary version)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTCapabilitySelectAll")]
+		public ISingleResult<ENTCapability> ENTCapabilitySelectAll()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTUserAccountId, windowsAccountName, firstName, lastName, email, isActive, updateENTUserAccountId, version);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ENTCapability>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTCapabilitySelectById")]
+		public ISingleResult<ENTCapability> ENTCapabilitySelectById([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTCapabilityId", DbType="Int")] System.Nullable<int> eNTCapabilityId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTCapabilityId);
+			return ((ISingleResult<ENTCapability>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleCapabilitySelectByENTRoleId")]
+		public ISingleResult<ENTRoleCapability> ENTRoleCapabilitySelectByENTRoleId([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleId);
+			return ((ISingleResult<ENTRoleCapability>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleSelectAll")]
+		public ISingleResult<ENTRole> ENTRoleSelectAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ENTRole>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleSelectByENTUserAccountId")]
+		public ISingleResult<ENTRole> ENTRoleSelectByENTUserAccountId([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTUserAccountId", DbType="Int")] System.Nullable<int> eNTUserAccountId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTUserAccountId);
+			return ((ISingleResult<ENTRole>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleSelectById")]
+		public ISingleResult<ENTRole> ENTRoleSelectById([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleId);
+			return ((ISingleResult<ENTRole>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUserAccountSelectByENTRoleId")]
+		public ISingleResult<ENTRoleUserAccount> ENTRoleUserAccountSelectByENTRoleId([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleId", DbType="Int")] System.Nullable<int> eNTRoleId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleId);
+			return ((ISingleResult<ENTRoleUserAccount>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleCapabilitySelectAll")]
+		public ISingleResult<ENTRoleCapability> ENTRoleCapabilitySelectAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ENTRoleCapability>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleCapabilitySelectById")]
+		public ISingleResult<ENTRoleCapability> ENTRoleCapabilitySelectById([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleCapabilityId", DbType="Int")] System.Nullable<int> eNTRoleCapabilityId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleCapabilityId);
+			return ((ISingleResult<ENTRoleCapability>)(result.ReturnValue));
 		}
 	}
 	
@@ -444,6 +659,260 @@ namespace V2.PaidTimeOffDAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ENTCapability")]
+	public partial class ENTCapability : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ENTCapabilityId;
+		
+		private string _CapabilityName;
+		
+		private System.Nullable<int> _ENTMenuItemId;
+		
+		private byte _AccessType;
+		
+		private System.DateTime _InsertDate;
+		
+		private int _InsertENTUserAccountId;
+		
+		private System.DateTime _UpdateDate;
+		
+		private int _UpdateENTUserAccountId;
+		
+		private System.Data.Linq.Binary _Version;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnENTCapabilityIdChanging(int value);
+    partial void OnENTCapabilityIdChanged();
+    partial void OnCapabilityNameChanging(string value);
+    partial void OnCapabilityNameChanged();
+    partial void OnENTMenuItemIdChanging(System.Nullable<int> value);
+    partial void OnENTMenuItemIdChanged();
+    partial void OnAccessTypeChanging(byte value);
+    partial void OnAccessTypeChanged();
+    partial void OnInsertDateChanging(System.DateTime value);
+    partial void OnInsertDateChanged();
+    partial void OnInsertENTUserAccountIdChanging(int value);
+    partial void OnInsertENTUserAccountIdChanged();
+    partial void OnUpdateDateChanging(System.DateTime value);
+    partial void OnUpdateDateChanged();
+    partial void OnUpdateENTUserAccountIdChanging(int value);
+    partial void OnUpdateENTUserAccountIdChanged();
+    partial void OnVersionChanging(System.Data.Linq.Binary value);
+    partial void OnVersionChanged();
+    #endregion
+		
+		public ENTCapability()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTCapabilityId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int ENTCapabilityId
+		{
+			get
+			{
+				return this._ENTCapabilityId;
+			}
+			set
+			{
+				if ((this._ENTCapabilityId != value))
+				{
+					this.OnENTCapabilityIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTCapabilityId = value;
+					this.SendPropertyChanged("ENTCapabilityId");
+					this.OnENTCapabilityIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CapabilityName", DbType="VarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string CapabilityName
+		{
+			get
+			{
+				return this._CapabilityName;
+			}
+			set
+			{
+				if ((this._CapabilityName != value))
+				{
+					this.OnCapabilityNameChanging(value);
+					this.SendPropertyChanging();
+					this._CapabilityName = value;
+					this.SendPropertyChanged("CapabilityName");
+					this.OnCapabilityNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTMenuItemId", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> ENTMenuItemId
+		{
+			get
+			{
+				return this._ENTMenuItemId;
+			}
+			set
+			{
+				if ((this._ENTMenuItemId != value))
+				{
+					this.OnENTMenuItemIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTMenuItemId = value;
+					this.SendPropertyChanged("ENTMenuItemId");
+					this.OnENTMenuItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessType", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte AccessType
+		{
+			get
+			{
+				return this._AccessType;
+			}
+			set
+			{
+				if ((this._AccessType != value))
+				{
+					this.OnAccessTypeChanging(value);
+					this.SendPropertyChanging();
+					this._AccessType = value;
+					this.SendPropertyChanged("AccessType");
+					this.OnAccessTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime InsertDate
+		{
+			get
+			{
+				return this._InsertDate;
+			}
+			set
+			{
+				if ((this._InsertDate != value))
+				{
+					this.OnInsertDateChanging(value);
+					this.SendPropertyChanging();
+					this._InsertDate = value;
+					this.SendPropertyChanged("InsertDate");
+					this.OnInsertDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int InsertENTUserAccountId
+		{
+			get
+			{
+				return this._InsertENTUserAccountId;
+			}
+			set
+			{
+				if ((this._InsertENTUserAccountId != value))
+				{
+					this.OnInsertENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._InsertENTUserAccountId = value;
+					this.SendPropertyChanged("InsertENTUserAccountId");
+					this.OnInsertENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int UpdateENTUserAccountId
+		{
+			get
+			{
+				return this._UpdateENTUserAccountId;
+			}
+			set
+			{
+				if ((this._UpdateENTUserAccountId != value))
+				{
+					this.OnUpdateENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateENTUserAccountId = value;
+					this.SendPropertyChanged("UpdateENTUserAccountId");
+					this.OnUpdateENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ENTMenuItem")]
 	public partial class ENTMenuItem : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -645,6 +1114,696 @@ namespace V2.PaidTimeOffDAL
 					this._IsAlwaysEnabled = value;
 					this.SendPropertyChanged("IsAlwaysEnabled");
 					this.OnIsAlwaysEnabledChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime InsertDate
+		{
+			get
+			{
+				return this._InsertDate;
+			}
+			set
+			{
+				if ((this._InsertDate != value))
+				{
+					this.OnInsertDateChanging(value);
+					this.SendPropertyChanging();
+					this._InsertDate = value;
+					this.SendPropertyChanged("InsertDate");
+					this.OnInsertDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int InsertENTUserAccountId
+		{
+			get
+			{
+				return this._InsertENTUserAccountId;
+			}
+			set
+			{
+				if ((this._InsertENTUserAccountId != value))
+				{
+					this.OnInsertENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._InsertENTUserAccountId = value;
+					this.SendPropertyChanged("InsertENTUserAccountId");
+					this.OnInsertENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int UpdateENTUserAccountId
+		{
+			get
+			{
+				return this._UpdateENTUserAccountId;
+			}
+			set
+			{
+				if ((this._UpdateENTUserAccountId != value))
+				{
+					this.OnUpdateENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateENTUserAccountId = value;
+					this.SendPropertyChanged("UpdateENTUserAccountId");
+					this.OnUpdateENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ENTRole")]
+	public partial class ENTRole : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ENTRoleId;
+		
+		private string _RoleName;
+		
+		private System.DateTime _InsertDate;
+		
+		private int _InsertENTUserAccountId;
+		
+		private System.DateTime _UpdateDate;
+		
+		private int _UpdateENTUserAccountId;
+		
+		private System.Data.Linq.Binary _Version;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnENTRoleIdChanging(int value);
+    partial void OnENTRoleIdChanged();
+    partial void OnRoleNameChanging(string value);
+    partial void OnRoleNameChanged();
+    partial void OnInsertDateChanging(System.DateTime value);
+    partial void OnInsertDateChanged();
+    partial void OnInsertENTUserAccountIdChanging(int value);
+    partial void OnInsertENTUserAccountIdChanged();
+    partial void OnUpdateDateChanging(System.DateTime value);
+    partial void OnUpdateDateChanged();
+    partial void OnUpdateENTUserAccountIdChanging(int value);
+    partial void OnUpdateENTUserAccountIdChanged();
+    partial void OnVersionChanging(System.Data.Linq.Binary value);
+    partial void OnVersionChanged();
+    #endregion
+		
+		public ENTRole()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRoleId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int ENTRoleId
+		{
+			get
+			{
+				return this._ENTRoleId;
+			}
+			set
+			{
+				if ((this._ENTRoleId != value))
+				{
+					this.OnENTRoleIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTRoleId = value;
+					this.SendPropertyChanged("ENTRoleId");
+					this.OnENTRoleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="VarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string RoleName
+		{
+			get
+			{
+				return this._RoleName;
+			}
+			set
+			{
+				if ((this._RoleName != value))
+				{
+					this.OnRoleNameChanging(value);
+					this.SendPropertyChanging();
+					this._RoleName = value;
+					this.SendPropertyChanged("RoleName");
+					this.OnRoleNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime InsertDate
+		{
+			get
+			{
+				return this._InsertDate;
+			}
+			set
+			{
+				if ((this._InsertDate != value))
+				{
+					this.OnInsertDateChanging(value);
+					this.SendPropertyChanging();
+					this._InsertDate = value;
+					this.SendPropertyChanged("InsertDate");
+					this.OnInsertDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int InsertENTUserAccountId
+		{
+			get
+			{
+				return this._InsertENTUserAccountId;
+			}
+			set
+			{
+				if ((this._InsertENTUserAccountId != value))
+				{
+					this.OnInsertENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._InsertENTUserAccountId = value;
+					this.SendPropertyChanged("InsertENTUserAccountId");
+					this.OnInsertENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int UpdateENTUserAccountId
+		{
+			get
+			{
+				return this._UpdateENTUserAccountId;
+			}
+			set
+			{
+				if ((this._UpdateENTUserAccountId != value))
+				{
+					this.OnUpdateENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateENTUserAccountId = value;
+					this.SendPropertyChanged("UpdateENTUserAccountId");
+					this.OnUpdateENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ENTRoleCapability")]
+	public partial class ENTRoleCapability : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ENTRoleCapabilityId;
+		
+		private int _ENTRoleId;
+		
+		private int _ENTCapabilityId;
+		
+		private byte _AccessFlag;
+		
+		private System.DateTime _InsertDate;
+		
+		private int _InsertENTUserAccountId;
+		
+		private System.DateTime _UpdateDate;
+		
+		private int _UpdateENTUserAccountId;
+		
+		private System.Data.Linq.Binary _Version;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnENTRoleCapabilityIdChanging(int value);
+    partial void OnENTRoleCapabilityIdChanged();
+    partial void OnENTRoleIdChanging(int value);
+    partial void OnENTRoleIdChanged();
+    partial void OnENTCapabilityIdChanging(int value);
+    partial void OnENTCapabilityIdChanged();
+    partial void OnAccessFlagChanging(byte value);
+    partial void OnAccessFlagChanged();
+    partial void OnInsertDateChanging(System.DateTime value);
+    partial void OnInsertDateChanged();
+    partial void OnInsertENTUserAccountIdChanging(int value);
+    partial void OnInsertENTUserAccountIdChanged();
+    partial void OnUpdateDateChanging(System.DateTime value);
+    partial void OnUpdateDateChanged();
+    partial void OnUpdateENTUserAccountIdChanging(int value);
+    partial void OnUpdateENTUserAccountIdChanged();
+    partial void OnVersionChanging(System.Data.Linq.Binary value);
+    partial void OnVersionChanged();
+    #endregion
+		
+		public ENTRoleCapability()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRoleCapabilityId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int ENTRoleCapabilityId
+		{
+			get
+			{
+				return this._ENTRoleCapabilityId;
+			}
+			set
+			{
+				if ((this._ENTRoleCapabilityId != value))
+				{
+					this.OnENTRoleCapabilityIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTRoleCapabilityId = value;
+					this.SendPropertyChanged("ENTRoleCapabilityId");
+					this.OnENTRoleCapabilityIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRoleId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int ENTRoleId
+		{
+			get
+			{
+				return this._ENTRoleId;
+			}
+			set
+			{
+				if ((this._ENTRoleId != value))
+				{
+					this.OnENTRoleIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTRoleId = value;
+					this.SendPropertyChanged("ENTRoleId");
+					this.OnENTRoleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTCapabilityId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int ENTCapabilityId
+		{
+			get
+			{
+				return this._ENTCapabilityId;
+			}
+			set
+			{
+				if ((this._ENTCapabilityId != value))
+				{
+					this.OnENTCapabilityIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTCapabilityId = value;
+					this.SendPropertyChanged("ENTCapabilityId");
+					this.OnENTCapabilityIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessFlag", DbType="TinyInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public byte AccessFlag
+		{
+			get
+			{
+				return this._AccessFlag;
+			}
+			set
+			{
+				if ((this._AccessFlag != value))
+				{
+					this.OnAccessFlagChanging(value);
+					this.SendPropertyChanging();
+					this._AccessFlag = value;
+					this.SendPropertyChanged("AccessFlag");
+					this.OnAccessFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime InsertDate
+		{
+			get
+			{
+				return this._InsertDate;
+			}
+			set
+			{
+				if ((this._InsertDate != value))
+				{
+					this.OnInsertDateChanging(value);
+					this.SendPropertyChanging();
+					this._InsertDate = value;
+					this.SendPropertyChanged("InsertDate");
+					this.OnInsertDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int InsertENTUserAccountId
+		{
+			get
+			{
+				return this._InsertENTUserAccountId;
+			}
+			set
+			{
+				if ((this._InsertENTUserAccountId != value))
+				{
+					this.OnInsertENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._InsertENTUserAccountId = value;
+					this.SendPropertyChanged("InsertENTUserAccountId");
+					this.OnInsertENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int UpdateENTUserAccountId
+		{
+			get
+			{
+				return this._UpdateENTUserAccountId;
+			}
+			set
+			{
+				if ((this._UpdateENTUserAccountId != value))
+				{
+					this.OnUpdateENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateENTUserAccountId = value;
+					this.SendPropertyChanged("UpdateENTUserAccountId");
+					this.OnUpdateENTUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ENTRoleUserAccount")]
+	public partial class ENTRoleUserAccount : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ENTRoleUserAccountId;
+		
+		private int _ENTRoleId;
+		
+		private int _ENTUserAccountId;
+		
+		private System.DateTime _InsertDate;
+		
+		private int _InsertENTUserAccountId;
+		
+		private System.DateTime _UpdateDate;
+		
+		private int _UpdateENTUserAccountId;
+		
+		private System.Data.Linq.Binary _Version;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnENTRoleUserAccountIdChanging(int value);
+    partial void OnENTRoleUserAccountIdChanged();
+    partial void OnENTRoleIdChanging(int value);
+    partial void OnENTRoleIdChanged();
+    partial void OnENTUserAccountIdChanging(int value);
+    partial void OnENTUserAccountIdChanged();
+    partial void OnInsertDateChanging(System.DateTime value);
+    partial void OnInsertDateChanged();
+    partial void OnInsertENTUserAccountIdChanging(int value);
+    partial void OnInsertENTUserAccountIdChanged();
+    partial void OnUpdateDateChanging(System.DateTime value);
+    partial void OnUpdateDateChanged();
+    partial void OnUpdateENTUserAccountIdChanging(int value);
+    partial void OnUpdateENTUserAccountIdChanged();
+    partial void OnVersionChanging(System.Data.Linq.Binary value);
+    partial void OnVersionChanged();
+    #endregion
+		
+		public ENTRoleUserAccount()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRoleUserAccountId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int ENTRoleUserAccountId
+		{
+			get
+			{
+				return this._ENTRoleUserAccountId;
+			}
+			set
+			{
+				if ((this._ENTRoleUserAccountId != value))
+				{
+					this.OnENTRoleUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTRoleUserAccountId = value;
+					this.SendPropertyChanged("ENTRoleUserAccountId");
+					this.OnENTRoleUserAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRoleId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int ENTRoleId
+		{
+			get
+			{
+				return this._ENTRoleId;
+			}
+			set
+			{
+				if ((this._ENTRoleId != value))
+				{
+					this.OnENTRoleIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTRoleId = value;
+					this.SendPropertyChanged("ENTRoleId");
+					this.OnENTRoleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTUserAccountId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int ENTUserAccountId
+		{
+			get
+			{
+				return this._ENTUserAccountId;
+			}
+			set
+			{
+				if ((this._ENTUserAccountId != value))
+				{
+					this.OnENTUserAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._ENTUserAccountId = value;
+					this.SendPropertyChanged("ENTUserAccountId");
+					this.OnENTUserAccountIdChanged();
 				}
 			}
 		}

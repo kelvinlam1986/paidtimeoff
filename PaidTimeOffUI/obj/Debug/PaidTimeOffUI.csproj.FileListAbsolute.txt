@@ -18,3 +18,13 @@ D:\PaidTimeOffSolution\PaidTimeOffUI\bin\V2.FrameworkControls.dll
 D:\PaidTimeOffSolution\PaidTimeOffUI\bin\V2.PaidTimeOffBLL.dll
 D:\PaidTimeOffSolution\PaidTimeOffUI\bin\V2.FrameworkControls.pdb
 D:\PaidTimeOffSolution\PaidTimeOffUI\bin\V2.PaidTimeOffBLL.pdb
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.ObjectBuilder2.dll
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.Unity.dll
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml
+D:\PaidTimeOffSolution\PaidTimeOffUI\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml

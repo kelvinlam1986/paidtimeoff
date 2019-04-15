@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -41,9 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomizedEntities.cs" />
+    <Compile Include="Framework\DBHelper.cs" />
     <Compile Include="Framework\DuplicateCheck.cs" />
     <Compile Include="Framework\ENTBaseData.cs" />
+    <Compile Include="Framework\ENTCapabilityData.cs" />
     <Compile Include="Framework\ENTMenuItemData.cs" />
+    <Compile Include="Framework\ENTRoleCapabilityData.cs" />
+    <Compile Include="Framework\ENTRoleData.cs" />
     <Compile Include="Framework\ENTUserAccountData.cs" />
     <Compile Include="Framework\IENTBaseEntity.cs" />
     <Compile Include="HRPaidTimeOff.designer.cs">

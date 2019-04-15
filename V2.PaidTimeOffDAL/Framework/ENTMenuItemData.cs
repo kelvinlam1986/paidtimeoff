@@ -10,9 +10,10 @@ namespace V2.PaidTimeOffDAL.Framework
     {
         public override List<ENTMenuItem> Select()
         {
-            using (var db = new HRPaidTimeOffDataContext())
+            using (var db = 
+                new HRPaidTimeOffDataContext(DBHelper.GetHRPaidTimeOffConnectionString()))
             {
-                return db.ENTMenuItems.ToList();
+                return db.ENTMenuItemSelectAll().ToList();
             }
         }
 

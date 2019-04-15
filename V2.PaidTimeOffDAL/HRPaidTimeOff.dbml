@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HRPaidTimeOff" Class="HRPaidTimeOffDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=HRPaidTimeOff;Integrated Security=True" SettingsObjectName="V2.PaidTimeOffDAL.Properties.Settings" SettingsPropertyName="HRPaidTimeOffConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=HRPaidTimeOff;User ID=sa" SettingsObjectName="V2.PaidTimeOffDAL.Properties.Settings" SettingsPropertyName="HRPaidTimeOffConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ENTUserAccount" Member="ENTUserAccounts">
-    <Type Name="ENTUserAccount" Id="ID2">
+    <Type Name="ENTUserAccount" Id="ID1">
       <Column Name="ENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="WindowsAccountName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -37,8 +37,21 @@
       <Argument Parameter="eNTUserAccountId" Member="ENTUserAccountId" />
     </DeleteFunction>
   </Table>
+  <Table Name="dbo.ENTCapability" Member="ENTCapabilities">
+    <Type Name="ENTCapability" Id="ID3">
+      <Column Name="ENTCapabilityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CapabilityName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ENTMenuItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.ENTMenuItem" Member="ENTMenuItems">
-    <Type Name="ENTMenuItem" Id="ID1">
+    <Type Name="ENTMenuItem" Id="ID2">
       <Column Name="ENTMenuItemId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MenuItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
@@ -53,19 +66,150 @@
       <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ENTRole" Member="ENTRoles">
+    <Type Name="ENTRole" Id="ID5">
+      <Column Name="ENTRoleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId4">
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+      <Argument Parameter="roleName" Member="RoleName" />
+      <Argument Parameter="insertENTUserAccountId" Member="InsertENTUserAccountId" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId5">
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+      <Argument Parameter="roleName" Member="RoleName" />
+      <Argument Parameter="updateENTUserAccountId" Member="UpdateENTUserAccountId" />
+      <Argument Parameter="version" Member="Version" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId6">
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.ENTRoleCapability" Member="ENTRoleCapabilities">
+    <Type Name="ENTRoleCapability" Id="ID4">
+      <Column Name="ENTRoleCapabilityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ENTRoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ENTCapabilityId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFlag" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId7">
+      <Argument Parameter="eNTRoleCapabilityId" Member="ENTRoleCapabilityId" />
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+      <Argument Parameter="eNTCapabilityId" Member="ENTCapabilityId" />
+      <Argument Parameter="accessFlag" Member="AccessFlag" />
+      <Argument Parameter="insertENTUserAccountId" Member="InsertENTUserAccountId" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId8">
+      <Argument Parameter="eNTRoleCapabilityId" Member="ENTRoleCapabilityId" />
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+      <Argument Parameter="eNTCapabilityId" Member="ENTCapabilityId" />
+      <Argument Parameter="accessFlag" Member="AccessFlag" />
+      <Argument Parameter="updateENTUserAccountId" Member="UpdateENTUserAccountId" />
+      <Argument Parameter="version" Member="Version" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId6">
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.ENTRoleUserAccount" Member="ENTRoleUserAccounts">
+    <Type Name="ENTRoleUserAccount" Id="ID6">
+      <Column Name="ENTRoleUserAccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ENTRoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InsertDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InsertENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateENTUserAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId9">
+      <Argument Parameter="eNTRoleUserAccountId" Member="ENTRoleUserAccountId" />
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+      <Argument Parameter="eNTUserAccountId" Member="ENTUserAccountId" />
+      <Argument Parameter="insertENTUserAccountId" Member="InsertENTUserAccountId" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId10">
+      <Argument Parameter="eNTRoleUserAccountId" Member="ENTRoleUserAccountId" />
+      <Argument Parameter="eNTRoleId" Member="ENTRoleId" />
+      <Argument Parameter="eNTUserAccountId" Member="ENTUserAccountId" />
+      <Argument Parameter="updateENTUserAccountId" Member="UpdateENTUserAccountId" />
+      <Argument Parameter="version" Member="Version" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId11">
+      <Argument Parameter="eNTRoleUserAccountId" Member="ENTRoleUserAccountId" />
+    </DeleteFunction>
+  </Table>
+  <Function Name="dbo.ENTRoleCapabilityDelete" Method="ENTRoleCapabilityDelete">
+    <Parameter Name="ENTRoleCapabilityId" Parameter="eNTRoleCapabilityId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId7" Name="dbo.ENTRoleCapabilityInsert" Method="ENTRoleCapabilityInsert">
+    <Parameter Name="ENTRoleCapabilityId" Parameter="eNTRoleCapabilityId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ENTCapabilityId" Parameter="eNTCapabilityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AccessFlag" Parameter="accessFlag" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId8" Name="dbo.ENTRoleCapabilityUpdate" Method="ENTRoleCapabilityUpdate">
+    <Parameter Name="ENTRoleCapabilityId" Parameter="eNTRoleCapabilityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ENTCapabilityId" Parameter="eNTCapabilityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AccessFlag" Parameter="accessFlag" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId6" Name="dbo.ENTRoleDelete" Method="ENTRoleDelete">
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId4" Name="dbo.ENTRoleInsert" Method="ENTRoleInsert">
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="RoleName" Parameter="roleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId5" Name="dbo.ENTRoleUpdate" Method="ENTRoleUpdate">
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleName" Parameter="roleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId11" Name="dbo.ENTRoleUserAccountDelete" Method="ENTRoleUserAccountDelete">
+    <Parameter Name="ENTRoleUserAccountId" Parameter="eNTRoleUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId9" Name="dbo.ENTRoleUserAccountInsert" Method="ENTRoleUserAccountInsert">
+    <Parameter Name="ENTRoleUserAccountId" Parameter="eNTRoleUserAccountId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InsertENTUserAccountId" Parameter="insertENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId10" Name="dbo.ENTRoleUserAccountUpdate" Method="ENTRoleUserAccountUpdate">
+    <Parameter Name="ENTRoleUserAccountId" Parameter="eNTRoleUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Id="FunctionId3" Name="dbo.ENTUserAccountDelete" Method="ENTUserAccountDelete">
     <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ENTMenuItemSelectAll" Method="ENTMenuItemSelectAll">
-    <ElementType IdRef="ID1" />
-  </Function>
-  <Function Name="dbo.ENTUserAccountSelectAll" Method="ENTUserAccountSelectAll">
-    <ElementType IdRef="ID2" />
-  </Function>
-  <Function Name="dbo.ENTUserAccountSelectById" Method="ENTUserAccountSelectById">
-    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
-    <ElementType IdRef="ID2" />
   </Function>
   <Function Id="FunctionId1" Name="dbo.ENTUserAccountInsert" Method="ENTUserAccountInsert">
     <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" Direction="InOut" />
@@ -87,5 +231,48 @@
     <Parameter Name="UpdateENTUserAccountId" Parameter="updateENTUserAccountId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Version" Parameter="version" Type="System.Data.Linq.Binary" DbType="rowversion" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ENTUserAccountSelectAll" Method="ENTUserAccountSelectAll">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ENTUserAccountSelectById" Method="ENTUserAccountSelectById">
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ENTMenuItemSelectAll" Method="ENTMenuItemSelectAll">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ENTCapabilitySelectAll" Method="ENTCapabilitySelectAll">
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.ENTCapabilitySelectById" Method="ENTCapabilitySelectById">
+    <Parameter Name="ENTCapabilityId" Parameter="eNTCapabilityId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.ENTRoleCapabilitySelectByENTRoleId" Method="ENTRoleCapabilitySelectByENTRoleId">
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ENTRoleSelectAll" Method="ENTRoleSelectAll">
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ENTRoleSelectByENTUserAccountId" Method="ENTRoleSelectByENTUserAccountId">
+    <Parameter Name="ENTUserAccountId" Parameter="eNTUserAccountId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ENTRoleSelectById" Method="ENTRoleSelectById">
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ENTRoleUserAccountSelectByENTRoleId" Method="ENTRoleUserAccountSelectByENTRoleId">
+    <Parameter Name="ENTRoleId" Parameter="eNTRoleId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.ENTRoleCapabilitySelectAll" Method="ENTRoleCapabilitySelectAll">
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ENTRoleCapabilitySelectById" Method="ENTRoleCapabilitySelectById">
+    <Parameter Name="ENTRoleCapabilityId" Parameter="eNTRoleCapabilityId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID4" />
   </Function>
 </Database>

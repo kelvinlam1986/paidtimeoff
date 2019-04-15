@@ -14,4 +14,20 @@ namespace V2.PaidTimeOffDAL
     public partial class ENTMenuItem : IENTBaseEntity
     {
     }
+
+    public partial class ENTRole : IENTBaseEntity
+    {
+    }
+
+    public partial class ENTCapability: IENTBaseEntity
+    {
+    }
+
+    public partial class ENTRoleCapability: IENTBaseEntity
+    {
+    }
+
+    public partial class ENTRoleUserAccount: IENTBaseEntity
+    {
+    }
 }
