@@ -275,4 +275,11 @@
     <Parameter Name="ENTRoleCapabilityId" Parameter="eNTRoleCapabilityId" Type="System.Int32" DbType="Int" />
     <ElementType IdRef="ID4" />
   </Function>
+  <Function Name="dbo.ENTRoleUserAccountSelectAll" Method="ENTRoleUserAccountSelectAll">
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.ENTRoleUserAccountSelectById" Method="ENTRoleUserAccountSelectById">
+    <Parameter Name="ENTRoleUserAccountId" Parameter="eNTRoleUserAccountId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID6" />
+  </Function>
 </Database>

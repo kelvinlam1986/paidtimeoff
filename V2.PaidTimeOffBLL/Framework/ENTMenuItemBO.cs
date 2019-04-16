@@ -47,6 +47,7 @@ namespace V2.PaidTimeOffBLL.Framework
         }
     }
 
+    [Serializable()]
     public class ENTMenuItemBOList : ENTBaseBOList<ENTMenuItemBO>
     {
         public override void Load()

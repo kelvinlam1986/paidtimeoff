@@ -45,7 +45,10 @@
     <Compile Include="Framework\ENTBaseBOList.cs" />
     <Compile Include="Framework\ENTBaseEO.cs" />
     <Compile Include="Framework\ENTBaseEOList.cs" />
+    <Compile Include="Framework\ENTCapabilityBO.cs" />
+    <Compile Include="Framework\ENTCapabilityBOList.cs" />
     <Compile Include="Framework\ENTMenuItemBO.cs" />
+    <Compile Include="Framework\ENTRoleCapabilityEO.cs" />
     <Compile Include="Framework\ENTUserAccountEO.cs" />
     <Compile Include="Framework\ENTUserAccountEOList.cs" />
     <Compile Include="Framework\ENTValidationError.cs" />

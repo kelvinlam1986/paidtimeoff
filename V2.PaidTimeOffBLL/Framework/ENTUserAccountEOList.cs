@@ -8,6 +8,7 @@ using V2.PaidTimeOffDAL.Framework;
 
 namespace V2.PaidTimeOffBLL.Framework
 {
+    [Serializable()]
     public class ENTUserAccountEOList : ENTBaseEOList<ENTUserAccountEO>
     {
         public override void Load()

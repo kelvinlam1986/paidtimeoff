@@ -49,6 +49,7 @@
     <Compile Include="Framework\ENTMenuItemData.cs" />
     <Compile Include="Framework\ENTRoleCapabilityData.cs" />
     <Compile Include="Framework\ENTRoleData.cs" />
+    <Compile Include="Framework\ENTRoleUserAccountData.cs" />
     <Compile Include="Framework\ENTUserAccountData.cs" />
     <Compile Include="Framework\IENTBaseEntity.cs" />
     <Compile Include="HRPaidTimeOff.designer.cs">

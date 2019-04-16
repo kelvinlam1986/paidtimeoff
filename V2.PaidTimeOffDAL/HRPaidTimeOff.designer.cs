@@ -355,6 +355,20 @@ namespace V2.PaidTimeOffDAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleCapabilityId);
 			return ((ISingleResult<ENTRoleCapability>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUserAccountSelectAll")]
+		public ISingleResult<ENTRoleUserAccount> ENTRoleUserAccountSelectAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ENTRoleUserAccount>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ENTRoleUserAccountSelectById")]
+		public ISingleResult<ENTRoleUserAccount> ENTRoleUserAccountSelectById([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENTRoleUserAccountId", DbType="Int")] System.Nullable<int> eNTRoleUserAccountId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eNTRoleUserAccountId);
+			return ((ISingleResult<ENTRoleUserAccount>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ENTUserAccount")]
