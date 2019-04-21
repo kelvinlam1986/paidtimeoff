@@ -25,6 +25,12 @@ namespace V2.FrameworkControls
         [Description("Enter the root path for your application.  This is used to determine the path for all items in the menu.")]
         public string RootPath { get; set; }
 
+        [Browsable(false)]
+        public ENTUserAccountEO UserAccount { get; set; }
+
+        [Browsable(false)]
+        public ENTRoleEOList Roles { get; set; }
+
         protected override void RenderContents(HtmlTextWriter writer)
         {
             base.RenderContents(writer);
@@ -41,14 +47,17 @@ namespace V2.FrameworkControls
                 // Loop around the top level items
                 foreach (var mi in MenuItems)
                 {
-                    // Check if this is the selected menu tab.
-                    if (mi.MenuItemName == topMenuItem.MenuItemName)
+                    if (mi.HasAccessToMenu(UserAccount, Roles))
                     {
-                        html += GetActiveTab(mi);
-                    }
-                    else
-                    {
-                        html += GetInactiveTab(mi);
+                        // Check if this is the selected menu tab.
+                        if (mi.MenuItemName == topMenuItem.MenuItemName)
+                        {
+                            html += GetActiveTab(mi);
+                        }
+                        else
+                        {
+                            html += GetInactiveTab(mi);
+                        }
                     }
                 }
 

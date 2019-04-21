@@ -7,12 +7,12 @@ D:\HRPaidTime\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffB
 D:\HRPaidTime\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffDAL.dll
 D:\HRPaidTime\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffBLL.pdb
 D:\HRPaidTime\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffDAL.pdb
-D:\PaidTimeOffSolution\V2.FrameworkControls\obj\Debug\V2.FrameworkControls.csprojResolveAssemblyReference.cache
-D:\PaidTimeOffSolution\V2.FrameworkControls\obj\Debug\V2.FrameworkControls.dll
-D:\PaidTimeOffSolution\V2.FrameworkControls\obj\Debug\V2.FrameworkControls.pdb
 D:\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.FrameworkControls.dll
 D:\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.FrameworkControls.pdb
 D:\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffBLL.dll
 D:\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffDAL.dll
 D:\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffBLL.pdb
 D:\PaidTimeOffSolution\V2.FrameworkControls\bin\Debug\V2.PaidTimeOffDAL.pdb
+D:\PaidTimeOffSolution\V2.FrameworkControls\obj\Debug\V2.FrameworkControls.csprojResolveAssemblyReference.cache
+D:\PaidTimeOffSolution\V2.FrameworkControls\obj\Debug\V2.FrameworkControls.dll
+D:\PaidTimeOffSolution\V2.FrameworkControls\obj\Debug\V2.FrameworkControls.pdb

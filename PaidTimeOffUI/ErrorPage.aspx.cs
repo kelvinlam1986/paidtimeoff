@@ -18,5 +18,10 @@ namespace PaidTimeOffUI
         {
 
         }
+
+        public override string[] CapabilityNames()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

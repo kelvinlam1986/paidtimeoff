@@ -14,6 +14,16 @@ namespace PaidTimeOffUI
         public event ButtonClickedHandler SaveButton_Click;
         public event ButtonClickedHandler CancelButton_Click;
 
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            if (((BasePage)Page).ReadOnly)
+            {
+                // Hide the save button
+                btnSave.Visible = false;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

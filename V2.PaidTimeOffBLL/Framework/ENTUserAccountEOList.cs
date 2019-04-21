@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using V2.PaidTimeOffDAL;
 using V2.PaidTimeOffDAL.Framework;
 
@@ -14,6 +12,20 @@ namespace V2.PaidTimeOffBLL.Framework
         public override void Load()
         {
             LoadFromList(new ENTUserAccountData().Select());
+        }
+
+        public void LoadWithRoles()
+        {
+            Load();
+            foreach (var user in this)
+            {
+                user.Roles.LoadByENTUserAccountId(user.ID);
+            }
+        }
+
+        public ENTUserAccountEO GetByWindowAccountName(string windowAccountName)
+        {
+            return this.SingleOrDefault(u => u.WindowAccountName.ToUpper() == windowAccountName.ToUpper());
         }
 
         protected void LoadFromList(List<ENTUserAccount> users)

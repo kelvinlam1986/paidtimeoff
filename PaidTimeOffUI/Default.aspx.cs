@@ -9,6 +9,17 @@ namespace PaidTimeOffUI
 {
     public partial class Default : BasePage
     {
+        protected override void OnInit(EventArgs e)
+        {
+            IgnoreCapabilityCheck = true;
+            base.OnInit(e);
+        }
+
+        public override string[] CapabilityNames()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string MenuItemName()
         {
             return "Home";

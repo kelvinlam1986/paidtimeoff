@@ -14,6 +14,16 @@ namespace PaidTimeOffUI
         public event ButtonClickedHandler AddButton_Click;
         public event ButtonClickedHandler PrintButton_Click;
 
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            if (((BasePage)this.Page).ReadOnly)
+            {
+                // Hide the Add Button
+                btnAddNew.Visible = false;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

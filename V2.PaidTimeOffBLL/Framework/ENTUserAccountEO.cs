@@ -11,11 +11,17 @@ namespace V2.PaidTimeOffBLL.Framework
     [Serializable()]
     public class ENTUserAccountEO : ENTBaseEO
     {
+        public ENTUserAccountEO()
+        {
+            Roles = new ENTRoleEOList();
+        }
+
         public string WindowAccountName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public bool IsActive { get; set; }
+        public ENTRoleEOList Roles { get; set; }
 
         public override bool Save(HRPaidTimeOffDataContext db, ref ENTValidationErrors validationErrors, int userAccountId)
         {
@@ -107,6 +113,30 @@ namespace V2.PaidTimeOffBLL.Framework
             LastName = userAccount.LastName;
             Email = userAccount.Email;
             IsActive = userAccount.IsActive;
+        }
+
+        public ENTRoleCapabilityEO.CapabilityAccessFlagEnum GetCapabilityAccess(
+            int capabilityId, ENTRoleEOList rolesWithCapabilities)
+        {
+            ENTRoleCapabilityEO.CapabilityAccessFlagEnum retVal
+                = ENTRoleCapabilityEO.CapabilityAccessFlagEnum.None;
+            foreach (var role in Roles)
+            {
+                ENTRoleEO roleWithCapabilities = rolesWithCapabilities.GetByRoleId(role.ID);
+                foreach (var capability in roleWithCapabilities.RoleCapabilites)
+                {
+                    if (capability.AccessFlag == ENTRoleCapabilityEO.CapabilityAccessFlagEnum.Edit)
+                    {
+                        return ENTRoleCapabilityEO.CapabilityAccessFlagEnum.Edit;
+                    }
+                    else if (capability.AccessFlag == ENTRoleCapabilityEO.CapabilityAccessFlagEnum.ReadOnly)
+                    {
+                        retVal = ENTRoleCapabilityEO.CapabilityAccessFlagEnum.ReadOnly;
+                    }
+                }
+            }
+
+            return retVal;
         }
     }
 }

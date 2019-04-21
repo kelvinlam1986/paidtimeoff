@@ -4,7 +4,7 @@ AS
 	SET NOCOUNT ON
   
 	SELECT ENTUserAccountId, WindowsAccountName, FirstName, LastName, 
-             Email, IsActive, InsertDate, InsertENTUserAccountid, 
+             Email, IsActive, InsertDate, InsertENTUserAccountId, 
              UpdateDate, UpdateENTUserAccountId, Version
     FROM ENTUserAccount
    WHERE ENTUserAccountId = @ENTUserAccountId

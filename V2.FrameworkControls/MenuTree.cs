@@ -25,6 +25,13 @@ namespace V2.FrameworkControls
         [Description("Enter the root path for your application.  This is used to determine the path for all items in the menu.")]
         public string RootPath { get; set; }
 
+        [Browsable(false)]
+        public ENTUserAccountEO UserAccount { get; set; }
+
+        [Browsable(false)]
+        public ENTRoleEOList Roles { get; set; }
+
+
         protected override void CreateChildControls()
         {
             TreeView menuControl = new TreeView();
@@ -43,27 +50,30 @@ namespace V2.FrameworkControls
         {
             foreach (var mi in menuItems)
             {
-                TreeNode menuNode = new TreeNode(mi.MenuItemName, mi.ID.ToString(),
+                if (mi.HasAccessToMenu(UserAccount, Roles))
+                {
+                    TreeNode menuNode = new TreeNode(mi.MenuItemName, mi.ID.ToString(),
                     "", (string.IsNullOrEmpty(mi.Url) ? "" : RootPath + mi.Url), "");
-                if (string.IsNullOrEmpty(mi.Url))
-                {
-                    menuNode.SelectAction = TreeNodeSelectAction.None;
-                }
+                    if (string.IsNullOrEmpty(mi.Url))
+                    {
+                        menuNode.SelectAction = TreeNodeSelectAction.None;
+                    }
 
-                // Check if this is the menu item that should be selected
-                if (mi.MenuItemName == CurrentMenuItemName)
-                {
-                    menuNode.Selected = true;
-                }
+                    // Check if this is the menu item that should be selected
+                    if (mi.MenuItemName == CurrentMenuItemName)
+                    {
+                        menuNode.Selected = true;
+                    }
 
-                // Check if this has children
-                if (mi.ChildMenuList.Count > 0)
-                {
-                    // Create items for the children
-                    CreateChildMenu(menuNode.ChildNodes, mi.ChildMenuList);
-                }
+                    // Check if this has children
+                    if (mi.ChildMenuList.Count > 0)
+                    {
+                        // Create items for the children
+                        CreateChildMenu(menuNode.ChildNodes, mi.ChildMenuList);
+                    }
 
-                nodes.Add(menuNode);
+                    nodes.Add(menuNode);
+                }
             }
         }
 

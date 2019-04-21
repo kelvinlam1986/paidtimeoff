@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using V2.PaidTimeOffDAL;
 using V2.PaidTimeOffDAL.Framework;
 
@@ -45,6 +43,47 @@ namespace V2.PaidTimeOffBLL.Framework
             DisplaySequence = menuItem.DisplaySequence;
             IsAlwaysEnabled = menuItem.IsAlwaysEnabled;
         }
+
+        public bool HasAccessToMenu(ENTUserAccountEO userAccount, ENTRoleEOList roles)
+        {
+            if (IsAlwaysEnabled)
+            {
+                return true;
+            }
+            else
+            {
+                foreach (var role in roles)
+                {
+                    if (role.RoleUserAccounts.IsUserInRole(userAccount.ID))
+                    {
+                        IEnumerable<ENTRoleCapabilityEO> capabilities =
+                            role.RoleCapabilites.GetByMenuItemId(ID);
+                        foreach (var capability in capabilities)
+                        {
+                            if ((capability != null) &&
+                                (capability.AccessFlag != ENTRoleCapabilityEO.CapabilityAccessFlagEnum.None))
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (ChildMenuList.Count > 0)
+            {
+                foreach (var item in ChildMenuList)
+                {
+                    if (item.HasAccessToMenu(userAccount, roles))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+
+        }
     }
 
     [Serializable()]
@@ -66,7 +105,7 @@ namespace V2.PaidTimeOffBLL.Framework
                     else
                     {
                         var parent = GetByMenuItemId(Convert.ToInt32(menuItemBO.ParentMenuItemId));
-                        if (parent == null) 
+                        if (parent == null)
                         {
                             // If it gets here then the parent isn’t in the list yet.
                             // Find the parent in the list.                            
@@ -80,7 +119,7 @@ namespace V2.PaidTimeOffBLL.Framework
                         }
                     }
                 }
-                
+
             }
         }
 
@@ -123,7 +162,7 @@ namespace V2.PaidTimeOffBLL.Framework
             {
                 this.Add(menuItemBO);
             }
-            else 
+            else
             {
                 // Since this has a parent it should be added to its parent’s children.
                 // Try to find the parent in the list already.
@@ -183,5 +222,6 @@ namespace V2.PaidTimeOffBLL.Framework
             //It wasn’t found so return null.
             return null;
         }
+
     }
 }

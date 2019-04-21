@@ -12,6 +12,11 @@ namespace PaidTimeOffUI.Administration
     {
         private const string VIEW_STATE_KEY_USER = "User";
 
+        public override string[] CapabilityNames()
+        {
+            return new string[] { "Users" };
+        }
+
         public override string MenuItemName()
         {
             return "Users";
@@ -19,7 +24,7 @@ namespace PaidTimeOffUI.Administration
 
         protected override void GoToGridPage()
         {
-            Response.Redirect("Users.aspx");
+            
         }
 
         protected override void LoadControls()

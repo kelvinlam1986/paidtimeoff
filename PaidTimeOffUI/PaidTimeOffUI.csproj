@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administration\Administration.aspx" />
+    <Content Include="Administration\Roles.aspx" />
     <Content Include="Administration\User.aspx" />
     <Content Include="Administration\Users.aspx" />
     <Content Include="Default.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="Administration\Administration.aspx.designer.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>

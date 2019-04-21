@@ -65,5 +65,10 @@ namespace PaidTimeOffUI.Administration
                 e.Row.Cells[COL_INDEX_ACTIVE].Controls.Add(chkActive);
             }
         }
+
+        public override string[] CapabilityNames()
+        {
+            return new string[] { "Users" };
+        }
     }
 }

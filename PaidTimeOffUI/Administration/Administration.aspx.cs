@@ -10,6 +10,12 @@ namespace PaidTimeOffUI.Administration
 {
     public partial class Administration : BasePage
     {
+        protected override void OnInit(EventArgs e)
+        {
+            IgnoreCapabilityCheck = true;
+            base.OnInit(e);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -38,6 +44,11 @@ namespace PaidTimeOffUI.Administration
         public override string MenuItemName()
         {
             return "Administration";
+        }
+
+        public override string[] CapabilityNames()
+        {
+            throw new NotImplementedException();
         }
     }
 }
